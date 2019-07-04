@@ -4,6 +4,7 @@ body {
 	font-size: 14px;
 	line-height: 1.5;
 	color: #333;
+	background-color: #e6e6e9
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,10 +22,10 @@ h1 {
 a {
 	color: inherit;
 }
-p {
-	color: #003082;
-}
 
+*, *:before, *:after {
+	box-sizing: border-box;
+  }
 code {
 	font-family: menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);
@@ -45,4 +46,60 @@ code {
 	display: block;
 	border-radius: 50%;
 	height: 120px;
+}
+#manual{
+	width: 50%;
+	display: block;
+	float: left;
+	padding: 15px;
+	background-color: white;
+}
+#form{
+	width: 50%;
+	display: block;
+	float: left;
+	padding: 15px;
+}
+.files pre{
+	background-color: white;
+	padding: 3px
+}
+.btn-primary{
+	background-color: #0063d3;
+	color: #fff;
+	box-shadow: inset 0 -0.125rem 0 #004ba0;
+	border-radius: 4px;
+	text-decoration: none;
+	padding: .625rem 1.125rem;
+	font-size: 15px;
+	display: block;
+	width: 100%;
+}
+.input-label .input-file  {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.input-label{
+	border-radius: 4px;
+	box-sizing: shadow-box;
+	/* box-shadow: inset 0 -0.125rem 0 #004ba0; */
+	border: 2px dashed #0063d3;
+	padding: .625rem 1.125rem;
+	color: #0063d3;
+	border-radius: 4px;
+	text-align: center;
+	font-size: 15px;
+	display: block;
+	width: 100%;
+	cursor: pointer; /* "hand" cursor */
+	margin-bottom: 10px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
 }
