@@ -1,7 +1,7 @@
 <svelte:head><title>Eerste Hulp Bij Abonnementen - EHBA</title></svelte:head>
 
 {#if state === 'select' }
-    
+
     <div>
         <h1>Eerste Hulp Bij Abonnementen!</h1>
 
@@ -47,7 +47,8 @@
 {:else if state === 'loading'}
 
     <div>
-        <p>loading</p>
+        <h1>Let's work it!</h1>
+        <Loader></Loader>
     </div>
 
 {:else if state === 'results'}
@@ -94,13 +95,14 @@
 <script>
     import BarChart from '../components/BarChart.svelte';
     import RawDataTable from '../components/RawDataTable.svelte';
+    import Loader from '../components/Loader.svelte';
 
     let files = [];    
     let state = 'select'
     let results = null;
 
-    // const API_URL = 'http://127.0.0.1:8000'
-    const API_URL = 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api'
+    const API_URL = 'http://127.0.0.1:8000'
+    // const API_URL = 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api'
     
     // Fetch the recommendations, based on the data supplied by the user
     const fetchRecommendations = async () => {
