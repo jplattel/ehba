@@ -10,11 +10,11 @@
 <p>
 	<i>Hoi!</i> Dit is een experimenteel project van <a href="http://jplattel.nl">Joost Plattel</a>. 
 	Het originele idee gaat al een paar jaar terug toen de OV-Chipkaart nog in zijn kinderschoenen stond, 
-	soms komt dat zoiets terug en knutsel ik weer wat in elkaar.
+	soms komt dan zoiets terug en knutsel ik weer wat in elkaar.
 </p>
 
 <p>
-	Het probleem was als volgt, ik was nieuwsgierig of een bepaald type dal abonnement voor de NS 
+	Het probleem was als volgt, ik was nieuwsgierig of een bepaald type abonnement voor de NS 
 	voor mij goedkoper zou zijn. En het liefste onderbouw ik dat met data... Dus als snel was ik 
 	met de exports van de NS en de OV-Chipkaart aan het knutselen. Natuurlijk is dat niet voor iedereen
 	weggegelegd, dus zo geschiedde: <i>de Eerste Hulp Bij Abonnementen</i>!

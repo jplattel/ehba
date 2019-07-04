@@ -1,7 +1,8 @@
 <svelte:head><title>Eerste Hulp Bij Abonnementen - EHBA</title></svelte:head>
 
-<h1>Eerste Hulp Bij Abonnementen</h1>
-
+{#if state === 'select' }
+    <h1>Eerste Hulp Bij Abonnementen</h1>
+{/if}
 {#if state === 'select' }
     <div id="manual">
         <h3>Stappenplan</h3>
@@ -37,19 +38,53 @@
                 {/each}
             </pre>
         </div>
-        {/if}
         <input class="btn-primary" type="button" value="Help mij aan een abonnement!" on:click="{clickRecommendationsForm}">
+        {/if}
     </div>
 
 {:else if state === 'loading'}
+
+    <input class="btn-primary" type="button" value="Reset" on:click="{resetRecommendationsForm}">
 
     <p>loading</p>
 
 {:else if state === 'results'}
 
-    <p>results: {results} </p>
-    <input type="button" value="Reset" on:click="{resetRecommendationsForm}">
+    <input class="btn-primary" type="button" value="Reset" on:click="{resetRecommendationsForm}">
 
+    {#if results}
+
+        <p>{results.counts.files} bestanden geanalyseerd</p>  
+
+        {results.results.totals.count} reizen voor € {results.results.totals.sum}.
+
+        <table class="data-table">
+            <tr>
+                <th></th>
+                <th>Datum</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Place From</th>
+                <th>Place To</th>
+                <th>Bedrag</th>
+                <th>Product</th>
+            </tr>
+            {#each Object.values(results.data) as row, i}
+                <tr>
+                    <td>{i }</td>
+                    <td>{ row.datum }</td>
+                    <td>{ row.check_in }</td>
+                    <td>{ row.check_out }</td>
+                    <td>{ row.place_from }</td>
+                    <td>{ row.place_to }</td>
+                    <td>{ row.bedrag }</td>
+                    <td>{ row.product }</td>
+                </tr>
+            {/each}
+        </table>
+    {/if}
+    <!-- {@debug results} -->
+    
 {/if}
 
 
@@ -61,17 +96,22 @@
     let state = 'select'
     let results = null;
 
-    const API_URL = 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api/'
+    const API_URL = 'http://127.0.0.1:8000'
+    // const API_URL = 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api'
     
     const fetchRecommendations = async () => {
         state = 'loading'
         const payload = await parseFiles(files)
-		const response = await fetch(API_URL + '/status');
-		const json = await response.json();
+		const response = await fetch(API_URL + '/parse', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({"files": payload}), 
+        });
+		let json = await response.json();
 
 		if (response.ok) {
+            results = json
             state = 'results'
-			return JSON.stringify(json);
 		} else {
 			throw new Error(response);
 		}
@@ -102,18 +142,14 @@
         let convertedFiles = await Promise.all(await Array.from(files).map(async file => {
             if (file.type === "text/csv") {
                 return await Papa.parsePromise(file);
-                // console.log(results)
             } else if (file.name.endsWith('xlsx') || file.name.endsWith('xls')) {
                 let csv = await XLSX.parsePromise(file);
                 return await Papa.parsePromise(csv);
             }
         }));
-
-        console.log(convertedFiles)
+        return convertedFiles
     }
 
-    const clickRecommendationsForm = async () => { results = await fetchRecommendations() }
+    const clickRecommendationsForm = async () => { await fetchRecommendations() }
     const resetRecommendationsForm = () => { state = 'select' }
-    
-
 </script> 

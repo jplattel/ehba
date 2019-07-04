@@ -103,3 +103,7 @@ code {
 .inputfile + label:hover {
     background-color: red;
 }
+.data-table tr td, .data-table tr th{
+	background-color: white; 
+	padding: 3px;
+}

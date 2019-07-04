@@ -3,8 +3,8 @@ import pandas as pd
 from chalice import Chalice, Response
 from sentry_sdk.integrations.aws_lambda import AwsLambdaIntegration
 from chalice import BadRequestError
-from chalicelib.utils import _files_to_dataframe
-from chalicelib.ehba import _calculate_ehba
+from chalicelib.utils import parsed_json_files_to_dataframe
+# from chalicelib.ehba import _calculate_ehba
 
 app = Chalice(app_name='ehba')
 
@@ -21,19 +21,28 @@ def index():
         status_code=200,
         headers={
             'Content-Type': 'text/json',
-            'X-Content-Type-Options': 'nosniff'
         }
     )
 
 @app.route('/parse', methods=['POST'], cors=True)
 def parse():
-    print(app.current_request.to_dict())
-    # TODO: _files_to_dataframe(files)
-    
-    df = pd.DataFrame()
-    results = _calculate_ehba(df)
-    return {
-        'status': 'ok',
-        'results': results
-    }
+    parsed_json_files = app.current_request.json_body.get("files", [])
 
+    data, results = parsed_json_files_to_dataframe(parsed_json_files)
+    # data.replace({pd.np.nan: None})
+    data.reset_index(drop=True)
+    return Response(
+        body={
+            'status': 'ok',
+            'counts': {
+                'files': len(parsed_json_files)
+            },
+            'charts': {},
+            'data': data.to_dict(orient='index'),
+            'results': results
+        },
+        status_code=200,
+        headers={
+            'Content-Type': 'text/json',
+        }
+    )
