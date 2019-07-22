@@ -1,21 +1,16 @@
 import pandas as pd
 
 def _read_dict(data):
-    # TODO: support OV-Chipkaart exports (no check-in time in the same row... ugh)
-    # if file.name.endswith('.csv'):
-    
+    # Get data and transform into dataframe
     df = pd.DataFrame.from_dict(data.get('data'))
-    # print(df.dtypes)
-    # print(data.get('meta'))
-
+    
     # Drop the last row (empty from blank line from CSV parser)
     df = df[:-1]
 
-    # We are dealign with NS Zakelijke
+    # We are dealign with NS Zakelijk
     if 'Prijs (excl. btw)' in data.get('meta').get('fields'):
         
-
-    #     # Rename columns to match calculations
+        # Rename columns to match calculations
         df.rename(columns={
             'Datum': 'datum',
             'Check in': 'check_in',
@@ -35,6 +30,10 @@ def _read_dict(data):
 
     # We are dealing with OV-Chipkaart export
     else:
+        # Drop automatisch opladen 
+        df = df[df['Transaction'] != 'Saldo automatisch opgeladen']
+
+        # Rename columns to match calculations
         df.rename(columns={
             'Datum': 'datum',
             'Check-in': 'check_in',
@@ -44,6 +43,7 @@ def _read_dict(data):
             'Bedrag': 'bedrag',
             'Product': 'product',
         }, inplace=True) # rename inplace (save memory)
+
         # Shift check once, align it with checkout
         df['check_in'] = df['check_in'].shift(1)
 
@@ -53,17 +53,10 @@ def _read_dict(data):
         # Convert date
         df['datum'] = pd.to_datetime(df['datum'], format='%d-%m-%Y')
 
-    
-    # Reformat dates
-    
-
     # Reindex
     df = df.reindex(['datum', 'check_in', 'check_out', 'place_from', 'place_to', 'bedrag', 'product'], axis=1)
     df = df.replace({pd.np.nan: None}) 
     
-    # df['bedrag'] = df['bedrag'].astype(float)
-    
-    # df = df.dropna() # Drop empty rows
     return df
 
 def parsed_json_files_to_dataframe(files):
@@ -74,13 +67,16 @@ def parsed_json_files_to_dataframe(files):
     return data, results
 
 def get_results(df):
+    
+    # Sort by year
+    years = df.groupby(df['datum'].dt.strftime('%Y'))['bedrag'].agg({'sum', 'count'}).fillna(0)
 
-    months = df.groupby(df['datum'].dt.strftime('%Y %m'))['bedrag'].agg({'sum', 'count'})
-    years = df.groupby(df['datum'].dt.strftime('%Y'))['bedrag'].agg({'sum', 'count'})
+    # Sort by months of the year
+    months = df.groupby(df['datum'].dt.strftime('%Y %m'))['bedrag'].agg({'sum', 'count'}).fillna(0)
 
     # Sort by weekday
     weekdays_catagories = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    weekdays = df.groupby(df['datum'].dt.strftime('%A'))['bedrag'].agg({'sum', 'count'}).reindex(weekdays_catagories)
+    weekdays = df.groupby(df['datum'].dt.strftime('%A'))['bedrag'].agg({'sum', 'count'}).reindex(weekdays_catagories).fillna(0)
 
     return {
         'months': months.to_dict(orient='index'),
