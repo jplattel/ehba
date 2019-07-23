@@ -94,6 +94,7 @@
 
 <script>
     import Papa from "papaparse";
+    import * as XLSX from 'xlsx';
     import BarChart from '../components/BarChart.svelte';
     import RawDataTable from '../components/RawDataTable.svelte';
     import Loader from '../components/Loader.svelte';
