@@ -31,7 +31,7 @@ def _read_dict(data):
     # We are dealing with OV-Chipkaart export
     else:
         # Drop automatisch opladen 
-        df = df[df['Transaction'] != 'Saldo automatisch opgeladen']
+        df = df[df['Transactie'] != 'Saldo automatisch opgeladen']
 
         # Rename columns to match calculations
         df.rename(columns={
@@ -46,6 +46,12 @@ def _read_dict(data):
 
         # Shift check once, align it with checkout
         df['check_in'] = df['check_in'].shift(1)
+        
+        # Get the index of the shifted rows (should now have an empty checkin & checkout)
+        shifted_rows = df[(df['check_in'] == None) & (df['check_uit'] == None)].index
+
+        # Drop the actual shifted rows
+        df.drop(shifted_rows, inplace=True)
 
         # Convert monetary value
         df['bedrag'] = pd.to_numeric(df['bedrag'].str.replace(',', '.'))

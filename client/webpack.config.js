@@ -38,9 +38,7 @@ module.exports = {
 			}),
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
-	}
-	,
-
+	},
 	server: {
 		entry: config.server.entry(),
 		output: config.server.output(),
@@ -68,9 +66,9 @@ module.exports = {
 		}
 	},
 
-	serviceworker: {
-		entry: config.serviceworker.entry(),
-		output: config.serviceworker.output(),
-		mode: process.env.NODE_ENV
-	}
+	// serviceworker: {
+	// 	entry: config.serviceworker.entry(),
+	// 	output: config.serviceworker.output(),
+	// 	mode: process.env.NODE_ENV
+	// }
 };

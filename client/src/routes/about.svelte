@@ -1,6 +1,5 @@
-<svelte:head>
-	<title>Eerste Hulp Bij Abonnementen - Over</title>
-</svelte:head>
+<svelte:head><title>Eerste Hulp Bij Abonnementen - EHBA - Over</title></svelte:head>
+
 
 <h1>
 	Over

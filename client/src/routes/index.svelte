@@ -93,6 +93,7 @@
 {/if}
 
 <script>
+    import Papa from "papaparse";
     import BarChart from '../components/BarChart.svelte';
     import RawDataTable from '../components/RawDataTable.svelte';
     import Loader from '../components/Loader.svelte';
