@@ -48,10 +48,10 @@ def _read_dict(data):
         df['check_in'] = df['check_in'].shift(1)
         
         # Get the index of the shifted rows (should now have an empty checkin & checkout)
-        shifted_rows = df[(df['check_in'] == None) & (df['check_uit'] == None)].index
+        shifted_rows = df[(df['check_in'] == pd.np.nan) & (df['check_out'] == pd.np.nan)].index
 
         # Drop the actual shifted rows
-        df.drop(shifted_rows, inplace=True)
+        df = df.drop(shifted_rows)
 
         # Convert monetary value
         df['bedrag'] = pd.to_numeric(df['bedrag'].str.replace(',', '.'))
