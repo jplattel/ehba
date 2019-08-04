@@ -2,7 +2,8 @@
 
 {#if state === 'select' }
 
-    <div>
+    <div class="container">
+
         <h1>Eerste Hulp Bij Abonnementen!</h1>
 
         <div id="manual">
@@ -18,7 +19,7 @@
                     </ul>
                 </li>
                 <li>
-                    Selecteer hiernaast in het formulier de CSV & XLS(x) bestanden.
+                    Selecteer in het formulier de CSV & XLS(x) bestanden.
                 </li>
                 <li>
                     Druk dan op '<i>Help mij aan een abonnement!</i>'
@@ -39,21 +40,22 @@
                     {/each}
                 </pre>
             </div>
-            <input class="btn-primary btn-block" type="button" value="Help mij aan een abonnement!" on:click="{clickRecommendationsForm}">
             {/if}
+            <input disabled="{ files.length === 0 }" class="btn-primary btn-block" type="button" value="Help mij aan een abonnement!" on:click="{clickRecommendationsForm}">
+            
         </div>
     </div>
 
 {:else if state === 'loading'}
 
-    <div>
+    <div class="container">
         <h1>Let's work it!</h1>
         <Loader></Loader>
     </div>
 
 {:else if state === 'results'}
 
-    <div>
+    <div class="container">
 
         {#if results}
 

@@ -1,6 +1,5 @@
 <style>
 .chart{
-	width: 50%;
 	/* height: 250px; */
 	float: left;
 	display: block;

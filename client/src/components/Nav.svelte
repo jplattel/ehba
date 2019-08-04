@@ -54,6 +54,6 @@
 	<ul>
 		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>EHBA</a></li>
 		<li><a class='{segment === "howto" ? "selected" : ""}' href='howto'>Hoe werkt het?</a></li>
-		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>Wie heeft dit gemaakt?</a></li>
+		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>Meer weten?</a></li>
 	</ul>
 </nav>

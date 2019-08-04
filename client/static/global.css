@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-family: 'Bungee Shade', cursive;
+	font-family: 'Bungee Shade', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 5em;
 	text-align: center;
 }
@@ -26,7 +26,8 @@ a {
 
 *, *:before, *:after {
 	box-sizing: border-box;
-  }
+}
+
 code {
 	font-family: menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);
@@ -36,10 +37,8 @@ code {
 	border-radius: 2px;
 }
 
-@media (min-width: 400px) {
-	body {
-		font-size: 16px;
-	}
+.container{
+	padding: 10px;
 }
 
 #profile-image{
@@ -74,6 +73,13 @@ code {
 	padding: .625rem 1.125rem;
 	font-size: 15px;
 	width: 100%;
+}
+.btn-primary:disabled{
+	border: solid 2px #ccc;
+	background-color: transparent;
+	color: #ccc;
+	cursor: not-allowed;
+	box-shadow: none;
 }
 .btn-block{
 	display: block;
@@ -111,14 +117,44 @@ code {
 	background-color: white;
 	padding: 10px;
 	width: 100%;
-	display: block
+	display: block;
 	border: 2px solid #e6e6e9;
 }
+
 #results-intro:first-child p{
 	padding-top: 0px;
 }
 
-.data-table tr td, .data-table tr th{
-	background-color: white; 
-	padding: 3px;
+.chart{
+	width: 50%;
 }
+
+/* Mobile  */
+@media only screen and (max-width: 420px) {
+	h1 {
+		font-size: 26px;
+	}
+	body {
+		font-size: 16px;
+	}
+	#manual{
+		width: 100%
+	}
+	#form{
+		width: 100%;
+	}
+	.chart{
+		width: 100%;
+	}
+	.data-table {
+		overflow: scroll
+	}
+}
+
+/* Tablet */
+@media only screen and (min-width:420px) and (max-width:768px) {
+	h1 {
+		font-size: 56px;
+	}
+}
+
