@@ -35,6 +35,6 @@
 		Nieuwsgierigheid is altijd fijn! Deze kleine applicatie draait met een <a href="https://svelte.dev/">Svelte</a> front-end en met 
 		<a href="https://chalice.readthedocs.io">Chalice</a> op <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> als backend. 
 		Je kan het project ook volgen op <a href="https://github.com/jplattel/ehba">Github</a>  
-		<i>(en contributions zijn altijd welkom!)</i>
+		<i>(en contributions zijn altijd welkom!)</i>.
 	</p>
 </div>

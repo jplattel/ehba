@@ -8,18 +8,18 @@
 
         <div id="manual">
             <h3>Stappenplan</h3>
-            <p>Om je het goede abonnement te kunnen aanraden hebben we het liefst zo veel mogelijk data nodig</p>
+            <p>Om je het goede abonnement te kunnen aanraden hebben we wel wat data je huidige reisgedrag nodig:</p>
             <ol>
                 <li>
-                    Download de data van de kaart(en):
+                    Download de data van de kaart(en)
                     <ul>
-                        <li><a href="https://www.ov-chipkaart.nl/mijn-ov-chip/mijn-ov-reishistorie.htm">OV-Chipkaart</a></li>
-                        <li><a href="https://www.ns.nl/mijnns#/reishistorie?">Mijn NS</a></li>
-                        <li><a href="https://www.ns.nl/mijnnszakelijk/home">NS Zakelijk</a></li>
+                        <li><a target="_blank" href="https://www.ov-chipkaart.nl/mijn-ov-chip/mijn-ov-reishistorie.htm">OV-Chipkaart</a></li>
+                        <li><a target="_blank" href="https://www.ns.nl/mijnns#/reishistorie?">Mijn NS</a></li>
+                        <li><a target="_blank" href="https://www.ns.nl/mijnnszakelijk/home">NS Zakelijk</a></li>
                     </ul>
                 </li>
                 <li>
-                    Selecteer in het formulier de CSV & XLS(x) bestanden.
+                    Selecteer de bestanden hieronder
                 </li>
                 <li>
                     Druk dan op '<i>Help mij aan een abonnement!</i>'

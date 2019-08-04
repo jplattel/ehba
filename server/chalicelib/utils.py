@@ -7,7 +7,7 @@ def _read_dict(data):
     # Drop the last row (empty from blank line from CSV parser)
     df = df[:-1]
 
-    # We are dealign with NS Zakelijk
+    # We are dealing with NS Zakelijk
     if 'Prijs (excl. btw)' in data.get('meta').get('fields'):
         
         # Rename columns to match calculations
@@ -27,6 +27,22 @@ def _read_dict(data):
 
         # Parse date
         df['datum'] = pd.to_datetime(df['datum'], format='%d-%m-%y')
+
+    # We are dealing with NS (persoonlijk)
+    elif 'Check in' in data.get('meta').get('fields'):
+        
+        # Only select train rides
+        df = df[df['Transactie'] == 'Reis']
+    
+        df.rename(columns={
+            'Datum': 'datum',
+            'Check in': 'check_in',
+            'Check uit': 'check_out',
+            'Vertrek': 'place_from',
+            'Bestemming': 'place_to',
+            'Af': 'bedrag',
+            'Product': 'product',
+        }, inplace=True) # rename inplace (save memory)
 
     # We are dealing with OV-Chipkaart export
     else:
