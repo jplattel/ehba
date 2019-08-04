@@ -4,14 +4,14 @@
         background-color: #003082;
         margin-left: -5%;
         margin-bottom: -100px;
-        height: 200px;
+        height: 180px;
         position: fixed;
         left: 0;
         bottom: 0;
         width: 110%;
         color: white;
         text-align: center;
-        transform: rotate(3deg);
+        transform: rotate(2deg);
         z-index: 1;
     }
     #footer-content{
@@ -23,6 +23,7 @@
         text-align: center;
         z-index: 10;
         margin-bottom: 30px;
+        font-size: 14px;
     }
 </style>
 

@@ -6,17 +6,23 @@
 
     <h2>OV-Chipkaart Export</h2>
 
+    <p>
+        Na het inloggen bij Mijn OV-Chipkaart kan je een kaart selecteren waarvan je data wilt exporteren. 
+        Selecteer een periode van maximaal een maand (dit is een stomme limitatie van Mijn OV-Chipkaart 😞).
+        <strong>Vink alle regels aan!</strong> Anders mis je de bedragen bij de check out, en maak dan een CSV bestand. 
+    </p>
+
     <h2>NS Export</h2>
 
     <p>
         Om de data te exporteren met persoonlijk account van de NS navigeer je na inloggen naar je '<i>Reishistorie</i>',
-        hier maak je een selectie en vink je de reizen aan om te declareren. Daarna exporteer je dit als CSV bestand.
+        hier maak je een selectie <i>(mijn advies, minimaal een jaar!🚀)</i>  en vink je de reizen aan om te declareren. Daarna exporteer je dit als CSV bestand.
     </p>
 
     <h2>NS Zakelijk Export</h2>
 
     <p>
-        Om te exporten als zakelijke gebruiker moet je inloggen als kaarthouder. Daarna navigeer je naar '<i>Gemaakte Reizen</i>',
+        Om de data te exporten als zakelijke gebruiker moet je inloggen als kaarthouder. Daarna navigeer je naar '<i>Gemaakte Reizen</i>',
         en kan je per maand de reizen exporteren als Excel bestand.
     </p>
 

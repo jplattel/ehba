@@ -44,6 +44,13 @@ def _read_dict(data):
             'Product': 'product',
         }, inplace=True) # rename inplace (save memory)
 
+        # Convert monetary value
+        df['bedrag'] = df['bedrag'].str.replace('€', '')
+        df['bedrag'] = pd.to_numeric(df['bedrag'].str.replace(',', '.'))
+
+        # Convert date
+        df['datum'] = pd.to_datetime(df['datum'], format='%d-%m-%Y')
+
     # We are dealing with OV-Chipkaart export
     else:
         # Drop automatisch opladen 
