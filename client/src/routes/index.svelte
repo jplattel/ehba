@@ -7,6 +7,14 @@
         <h1>Eerste Hulp Bij Abonnementen!</h1>
 
         <div id="manual">
+            <h3>Keuzehulp voor het juiste abonnement</h3>
+
+            <p>
+                Waar de keuzehulp van de NS tekort schiet komt EHBA te hulp!
+                Op basis van jouw data kan jij nu een betere keus maken welk abonnement van de NS het beste past 
+                bij jouw reisgedrag! 🚀
+            </p>
+
             <h3>Stappenplan</h3>
             <p>Om je het goede abonnement te kunnen aanraden hebben we wel wat data je huidige reisgedrag nodig:</p>
             <ol>

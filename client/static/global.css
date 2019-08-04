@@ -62,7 +62,8 @@ code {
 }
 .files pre{
 	background-color: white;
-	padding: 3px
+	padding: 3px;
+	overflow-x: scroll;
 }
 .btn-primary{
 	background-color: #0063d3;

@@ -30,12 +30,12 @@
 
     <p>
         Je data wordt verzonden naar een server waarop deze data verwerkt wordt om je inzicht te kunnen geven. 
-        De data wordt niet opgeslagen. Werkt de applicatie niet goed met jou data? Neem dan even contact met mij op via:
+        De data wordt niet opgeslagen. Werkt de applicatie niet goed met jou data? Neem dan even contact met mij op:  
         <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>.
     </p>
 
     <h2>Hoe zit het met cookies en trackers?</h2>
 
-    <p>Niks, noppes nada, wel zo fijn!</p>
+    <p>Niks, noppes nada, wel zo fijn! ✌️</p>
 
 </div>

@@ -1,7 +1,7 @@
 <svelte:head><title>Eerste Hulp Bij Abonnementen - EHBA - Over</title></svelte:head>
 
 <div class="container">
-<div>
+
 	<h1>
 		Over EHBA
 	</h1>
@@ -22,12 +22,12 @@
 	</p>
 
 	<p>
-		<strong>Ben je van de NS?</strong>
+		<strong>Ben je van de NS of OV-Chipkaart?</strong>
 	</p>
 
 	<p>
 		Dan kom ik graag een keer koffie drinken! ☕
-		Neem contact op via <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a></p>
+		Neem contact op via <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>.</p>
 	<p>
 		<strong>Nieuwsgierig naar de techniek?</strong>
 	</p>
