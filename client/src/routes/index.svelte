@@ -10,7 +10,7 @@
             <h3>Keuzehulp voor het juiste abonnement</h3>
 
             <p>
-                Waar de keuzehulp van de NS tekort schiet komt EHBA te hulp!
+                Waar de keuzehulp van de NS tekort schiet komt EHBA te hulp! 👋
                 Op basis van jouw data kan jij nu een betere keus maken welk abonnement van de NS het beste past 
                 bij jouw reisgedrag! 🚀
             </p>
@@ -65,6 +65,27 @@
 
     <div class="container">
 
+        {#if errors}
+
+            <div id="results-intro">
+                <h2>Uh oh, er ging iets mis..</h2>
+
+                <pre>
+                    <code class="error">
+                        <strong>{errors}</strong> 
+                    </code>
+                </pre>
+                
+                <p>
+                    Als het probleem zich blijft voorthouden, neem dan contact op met Joost via:
+                    <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>.
+                </p>
+
+                <button class="btn-primary" on:click="{goHome}">Terug naar het formulier</button>
+            </div>
+            
+        {/if}
+
         {#if results}
 
             <h1>De resultaten!</h1>
@@ -112,6 +133,7 @@
     let files = [];    
     let state = 'select'
     let results = null;
+    let errors = null;
 
     // const API_URL = 'http://127.0.0.1:8000'
     const API_URL = 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api'
@@ -133,9 +155,14 @@
             results = await response.json();
             state = 'results'
 		} else {
-            state = 'select'
-			throw new Error(response);
+            state = 'results'
+            errors = await response.text();
+            console.log(errors)
 		}
+    }
+
+    const goHome = () => {
+        state = 'select'
     }
 
     // Convert papa callback into promise

@@ -154,12 +154,31 @@ code {
 	.data-table {
 		overflow: scroll
 	}
+	
 }
 
 /* Tablet */
 @media only screen and (min-width:420px) and (max-width:768px) {
 	h1 {
-		font-size: 56px;
+		font-size: 36px;
+	}
+	body {
+		font-size: 16px;
+	}
+	main {
+		margin-bottom: 100px;
+	}
+	#manual{
+		width: 100%
+	}
+	#form{
+		width: 100%;
+	}
+	.chart{
+		width: 100%;
+	}
+	.data-table {
+		overflow: scroll
 	}
 }
 
