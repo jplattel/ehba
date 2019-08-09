@@ -12,6 +12,7 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
+    "@sentry/browser": "^5.6.1",
     "compression": "^1.7.1",
     "papaparse": "^5.0.0",
     "polka": "^0.5.0",

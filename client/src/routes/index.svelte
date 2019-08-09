@@ -35,11 +35,11 @@
             </ol>
         </div>
         <div id="form">
-            <label class="input-label">
+            <label class="input-label" for="file-selector">
                 Selecteer jouw bestanden (.csv en/of .xls)
-                <input class="input-file" type="file" multiple accept=".xls,.xlsx,.csv" bind:files>
+                <input class="input-file"  name="file-selector" on:change={changed} type="file" id="file-selector" multiple="multiple" bind:files accept=".xls,.xlsx,.csv" >
             </label>
-        
+
             {#if files.length > 0 }
             <div class="files">
                 <pre>
@@ -129,6 +129,9 @@
     import BarChart from '../components/BarChart.svelte';
     import RawDataTable from '../components/RawDataTable.svelte';
     import Loader from '../components/Loader.svelte';
+	import * as Sentry from '@sentry/browser';
+
+	Sentry.init({ dsn: 'https://3ccc21b329bf4844b888210a12d6a026@sentry.io/1526262' });
 
     let files = [];    
     let state = 'select'
@@ -164,6 +167,11 @@
     const goHome = () => {
         state = 'select'
     }
+
+    const changed = (event)=>{
+		console.log('changed', event)
+		files = event.target.files;
+	}
 
     // Convert papa callback into promise
     Papa.parsePromise = function(file) {
