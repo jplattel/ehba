@@ -25,7 +25,7 @@ table.data-table  tr td, table.data-table  tr th{
 
 <div class="subscription-recommendation">
 
-    <h3>Jouw NS Abonnement</h3>
+    <h2>Jouw eerste hulp bij een NS Abonnement</h2>
 
     <p>
         We hebben van jouw {counts.files} bestand{#if counts.files !== 1}en{/if} geanalyseerd. 
@@ -34,11 +34,16 @@ table.data-table  tr td, table.data-table  tr th{
     </p>
 
     <p>
-        Hieronder zie je per maand wat voor jou het meest optimale abonnement per maand was. 
-
-        P.S. Trajecten abonnementen kunnen we niet aanraden omdat de prijs hiervan per traject anders is.
+        <i>Hieronder zie je per maand wat voor jou het meest optimale abonnement per maand was. 
+        Traject abonnementen kunnen we helaas niet mee nemen in de berekening omdat de kosten 
+        daarvoor niet uit te rekenen zijn. Als je reisgedrag veranderd kan het ook zijn dat jouw 
+        beste abonnement wellicht veranderd!</i>
     </p>
 
+    <p style="text-align: center; text-decoration: underline; font-size: 16px;">
+        Het abonnement wat het meeste voorkomt in de eerdere maanden is waarschijnlijk het beste abonnement voor jou!
+    </p>
+    
 </div>
 
 <table class="data-table">

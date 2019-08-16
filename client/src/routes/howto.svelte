@@ -48,6 +48,12 @@
         Omdat de NS de Flex abonnementen onlangs heeft geintroduceerd houden mijn berekeningen daarmee het langste stand..
     </p>
 
+    <h2>Welke logica zit er achter het aanraden van het abonnement?</h2>
+
+    <p>Alle logica voor het aanraden van een abonnement kan je vinden op <a href="https://github.com/jplattel/ehba/blob/master/client/src/components/SubscriptionRecommendation.svelte#L60">Github</a>.</p>
+
+
+
     <h2>Hoe zit het met cookies en trackers?</h2>
 
     <p>
