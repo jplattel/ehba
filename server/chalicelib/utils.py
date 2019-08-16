@@ -156,7 +156,7 @@ def get_results(df):
         'weekend': {
             'months': weekend_months.to_dict(orient='index'),
             'years': weekend_years.to_dict(orient='index')
-        }
+        },
         'totals': {
             'total': {
                 'count': df.shape[0],
