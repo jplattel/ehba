@@ -54,11 +54,13 @@ code {
 	display: block;
 	padding: 15px;
 	background-color: white;
+	float: left;
 }
 #form{
 	width: 50%;
 	display: block;
 	padding: 15px;
+	float: left;
 }
 .files pre{
 	background-color: white;
@@ -144,6 +146,7 @@ code {
 	}
 	#form{
 		width: 100%;
+		margin-bottom: 100px;
 	}
 	.chart{
 		width: 100%;
@@ -170,6 +173,8 @@ code {
 	}
 	#form{
 		width: 100%;
+		display: block;
+		margin-bottom: 160px;
 	}
 	.chart{
 		width: 100%;

@@ -21,13 +21,20 @@
                 <li>
                     Download de data van de kaart(en)
                     <ul>
-                        <li><a target="_blank" href="https://www.ov-chipkaart.nl/mijn-ov-chip/mijn-ov-reishistorie.htm">OV-Chipkaart</a></li>
-                        <li><a target="_blank" href="https://www.ns.nl/mijnns#/reishistorie?">Mijn NS</a></li>
-                        <li><a target="_blank" href="https://www.ns.nl/mijnnszakelijk/home">NS Zakelijk</a></li>
+                        <li>
+                            <a target="_blank" href="https://www.ov-chipkaart.nl/mijn-ov-chip/mijn-ov-reishistorie.htm">OV-Chipkaart</a>
+                            <span style="color: #fc2121; font-size: 12px; margin-top: -5px; padding: 3px; border-radius: 5px;">*selecteer alle transacties!</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.ns.nl/mijnns#/reishistorie?">Mijn NS</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.ns.nl/mijnnszakelijk/home">NS Zakelijk</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
-                    Selecteer de bestanden hieronder
+                    Selecteer de bestanden
                 </li>
                 <li>
                     Druk dan op '<i>Help mij aan een abonnement!</i>'
@@ -90,14 +97,7 @@
 
             <h1>De resultaten!</h1>
 
-            <div id="results-intro">
-                <h2>Voor jouw persoonlijk:</h2>
-                <p>
-                    Na het analyseren van {results.counts.files} bestanden. Kunnen we in ieder 
-                    geval zeggen dat je <strong>€ {results.results.totals.total.sum}</strong> 
-                    hebt uitgegeven aan <strong>{results.results.totals.total.count}</strong> reizen.
-                </p>
-            </div>
+            <SubscriptionRecommendation data={results.results} counts={results.counts}></SubscriptionRecommendation>
 
             <BarChart data={results.results.weekdays}>
                 <span slot="title">Dag van de week</span>
@@ -128,6 +128,7 @@
     import * as XLSX from 'xlsx';
     import BarChart from '../components/BarChart.svelte';
     import RawDataTable from '../components/RawDataTable.svelte';
+    import SubscriptionRecommendation from '../components/SubscriptionRecommendation.svelte';
     import Loader from '../components/Loader.svelte';
 	import * as Sentry from '@sentry/browser';
 

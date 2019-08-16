@@ -28,6 +28,7 @@
 	<p>
 		Dan kom ik graag een keer koffie drinken! ☕
 		Neem contact op via <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>.</p>
+	
 	<p>
 		<strong>Nieuwsgierig naar de techniek?</strong>
 	</p>

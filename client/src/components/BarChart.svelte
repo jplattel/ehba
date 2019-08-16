@@ -35,8 +35,6 @@
 				label: 'Kosten (€)',
 				borderColor: '#0063d3',
 				backgroundColor: '#0063d3',
-				borderWidth: 1,
-				borderWidth: 1,
 				data: Object.values(data).map(i => i.sum)
 			}]
 		}

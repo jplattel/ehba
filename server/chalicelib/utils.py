@@ -1,4 +1,5 @@
 import pandas as pd
+import datetime
 
 def _read_dict(data):
     # Get data and transform into dataframe
@@ -84,16 +85,43 @@ def _read_dict(data):
 
     # Reindex
     df = df.reindex(['datum', 'check_in', 'check_out', 'place_from', 'place_to', 'bedrag', 'product'], axis=1)
-    df = df.replace({pd.np.nan: None}) 
+    df = df.replace({pd.np.nan: None})
     
     return df
 
+
 def parsed_json_files_to_dataframe(files):
     data = pd.concat(list(map(lambda data: _read_dict(data), files)), sort=True)
+    data = parse_times(data)
     data = data.reset_index(drop=True)
     results = get_results(data)
     data['datum'] = data['datum'].astype(str) # Convert date object back to str
     return data, results
+
+def check_weekday_reduction_time(check_in):
+    try:
+        # Parse time if possible
+        time = datetime.time.fromisoformat(check_in)
+        
+        # Before 6:30
+        if time < datetime.time(hour=6, minute=30):
+            return True
+        # Between 9:00 and 16:30
+        elif time > datetime.time(hour=9) and time < datetime.time(hour=16, minute=30):
+            return True
+        # Evening after 18:30
+        elif time > datetime.time(hour=18, minute=30):
+            return True
+        else: 
+            return False
+    except:
+        return False
+
+def parse_times(df):
+    df['reduction_weekend'] = df['datum'].dt.day_name().isin(["Saturday", "Sunday"]) # Weekend
+    df['reduction_hours'] = df['check_in'].apply(check_weekday_reduction_time)
+    df['reduction'] = df['reduction_weekend'] | df['reduction_hours']
+    return df
 
 def get_results(df):
     
@@ -107,14 +135,40 @@ def get_results(df):
     weekdays_catagories = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     weekdays = df.groupby(df['datum'].dt.strftime('%A'))['bedrag'].agg({'sum', 'count'}).reindex(weekdays_catagories).fillna(0)
 
+    # Filter reduction
+    reduction_df = df[df['reduction'] == True]
+    reduction_months = reduction_df.groupby(reduction_df['datum'].dt.strftime('%Y %m'))['bedrag'].agg({'sum', 'count'}).fillna(0)
+    reduction_years = reduction_df.groupby(reduction_df['datum'].dt.strftime('%Y'))['bedrag'].agg({'sum', 'count'}).fillna(0)
+
+    # Filter for weekends
+    weekend_df = df[df['reduction_weekend'] == True]
+    weekend_months = weekend_df.groupby(weekend_df['datum'].dt.strftime('%Y %m'))['bedrag'].agg({'sum', 'count'}).fillna(0)
+    weekend_years = weekend_df.groupby(weekend_df['datum'].dt.strftime('%Y'))['bedrag'].agg({'sum', 'count'}).fillna(0)
+
     return {
         'months': months.to_dict(orient='index'),
         'years': years.to_dict(orient='index'),
         'weekdays': weekdays.to_dict(orient='index'),
+        'reduction': {
+            'months': reduction_months.to_dict(orient='index'),
+            'years': reduction_years.to_dict(orient='index')
+        },
+        'weekend': {
+            'months': weekend_months.to_dict(orient='index'),
+            'years': weekend_years.to_dict(orient='index')
+        }
         'totals': {
             'total': {
                 'count': df.shape[0],
                 'sum': int(df['bedrag'].sum())
+            },
+            'reduction': {
+                'count': reduction_df.shape[0],
+                'sum': int(reduction_df['bedrag'].sum())
+            },
+            'weekend': {
+                'count': weekend_df.shape[0],
+                'sum': int(weekend_df['bedrag'].sum())
             }
         },
     }

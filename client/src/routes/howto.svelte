@@ -30,12 +30,28 @@
 
     <p>
         Je data wordt verzonden naar een server waarop deze data verwerkt wordt om je inzicht te kunnen geven. 
-        De data wordt niet opgeslagen. Werkt de applicatie niet goed met jou data? Neem dan even contact met mij op:  
-        <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>.
+        De data wordt <strong>niet</strong> opgeslagen. Werkt de applicatie niet goed met jou data? Neem dan even contact met mij op:  
+        <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>. Want soms is het ontwikkelen en bugfixen daardoor soms moeilijker 🤓.
+    </p>
+
+    <h2>Kan je ook traject abonnementen aanraden?</h2>
+
+    <p>
+        Helaas! Het enigste wat deze applicatie niet doet is zijn traject abonnementen, dat komt 
+        omdat de prijs van het traject onbekend is en niet direct even makkelijk beschikbaar is.
+    </p>
+
+    <h2>Hoe komt het dat je alleen flex abonnementen aanraad?</h2>
+
+    <p>
+        De oude abonnementen komen ongeveer overeen met de nieuwe. Je kan ze zelf vergelijken (oud / nieuw).
+        Omdat de NS de Flex abonnementen onlangs heeft geintroduceerd houden mijn berekeningen daarmee het langste stand..
     </p>
 
     <h2>Hoe zit het met cookies en trackers?</h2>
 
-    <p>Niks, noppes nada, wel zo fijn! ✌️</p>
+    <p>
+        Niks, noppes nada, wel zo fijn! ✌️
+    </p>
 
 </div>
