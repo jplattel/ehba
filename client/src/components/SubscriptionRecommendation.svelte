@@ -41,7 +41,43 @@ table.data-table  tr td, table.data-table  tr th{
     </p>
 
     <p style="text-align: center; text-decoration: underline; font-size: 16px;">
-        Het abonnement wat het meeste voorkomt in de eerdere maanden is waarschijnlijk het beste abonnement voor jou!
+        Het abonnement dat het meeste geschikt is voor jou is: 
+
+        <strong>
+            <!-- Als je meer dan 347 per maand uitgeeft is Altijd Vrij het beste -->
+            {#if (data.totals.total.sum / Object.keys(data.months).length).toFixed(2) > 347}
+            <a href="https://www.ns.nl/ns-abonnementen/altijd-vrij/">NS Flex Altijd Vrij</a>
+            
+            <!-- Als je meer dan 106 per maand in de daluren uitgeef is Dal Vrij het beste -->
+            {:else if (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 106} 
+            <a href="https://www.ns.nl/ns-abonnementen/dal-vrij/">NS Flex Dal Vrij</a>
+
+            <!-- NS Flex Weekend Vrij (+ korting) -->
+            {:else if (data.totals.weekend.sum  / Object.keys(data.months).length).toFixed(2) > 80 && ( data.totals.weekend.sum / Object.keys(data.months).length).toFixed(2) - (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 7.5} NS Flex Weekend Vrij & korting
+            <a href="https://www.ns.nl/ns-abonnementen/weekend-vrij/">NS Flex Weekend Vrij (+ korting!)</a>
+
+            <!-- NS Flex Weekend Vrij -->
+            {:else if (data.totals.weekend.sum  / Object.keys(data.months).length).toFixed(2) > 80} 
+            <a href="https://www.ns.nl/ns-abonnementen/weekend-vrij/">NS Flex Weekend Vrij</a>
+
+            <!-- Als je 48 uitgeefd buiten de spits en 24 in de spits is Altijd Voordeel het beste -->
+            {:else if (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 48 && (data.totals.total.sum / Object.keys(data.months).length).toFixed(2) - 48 > 24}
+            <a href="https://www.ns.nl/ns-abonnementen/altijd-voordeel/">NS Flex Altijd Voordeel</a>
+            
+            <!-- Als je in de daluren meer dan 12,5 uitgeefd per maand is het NS Fles Dal Voordeel het al goedkoper-->
+            {:else if (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 12.5} 
+            <a href="https://www.ns.nl/ns-abonnementen/dal-voordeel/">NS Flex Dal Voordeel</a>
+
+            <!-- NS Flex Weekend Voordeel -->
+            {:else if (data.totals.weekend.sum  / Object.keys(data.months).length).toFixed(2) > 7.5}
+            <a href="https://www.ns.nl/ns-abonnementen/weekend-voordeel/">NS Flex Weekend Voordeel</a>
+            
+            <!-- Default to Flex Basis -->
+            {:else}
+            <a href="https://www.ns.nl/ns-abonnementen/basis/">NS Flex Basis</a>
+            {/if}
+        </strong>
+
     </p>
     
 </div>
@@ -53,6 +89,46 @@ table.data-table  tr td, table.data-table  tr th{
         <th>€ Daluren</th>
         <th>€ Weekend</th>
         <th>Beste maandabonnement</th>
+    </tr>
+    <tr>
+        <td>Gemiddeld</td>
+        <td>€ {(data.totals.total.sum / Object.keys(data.months).length).toFixed(2)}</td>
+        <td>€ {(data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2)}</td>
+        <td>€ {(data.totals.weekend.sum  / Object.keys(data.months).length).toFixed(2)}</td>
+        <td>
+            <!-- Als je meer dan 347 per maand uitgeeft is Altijd Vrij het beste -->
+            {#if (data.totals.total.sum / Object.keys(data.months).length).toFixed(2) > 347}
+            <a href="https://www.ns.nl/ns-abonnementen/altijd-vrij/">NS Flex Altijd Vrij</a>
+            
+            <!-- Als je meer dan 106 per maand in de daluren uitgeef is Dal Vrij het beste -->
+            {:else if (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 106} 
+            <a href="https://www.ns.nl/ns-abonnementen/dal-vrij/">NS Flex Dal Vrij</a>
+
+            <!-- NS Flex Weekend Vrij (+ korting) -->
+            {:else if (data.totals.weekend.sum  / Object.keys(data.months).length).toFixed(2) > 80 && ( data.totals.weekend.sum / Object.keys(data.months).length).toFixed(2) - (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 7.5} NS Flex Weekend Vrij & korting
+            <a href="https://www.ns.nl/ns-abonnementen/weekend-vrij/">NS Flex Weekend Vrij (+ korting!)</a>
+
+            <!-- NS Flex Weekend Vrij -->
+            {:else if (data.totals.weekend.sum  / Object.keys(data.months).length).toFixed(2) > 80} 
+            <a href="https://www.ns.nl/ns-abonnementen/weekend-vrij/">NS Flex Weekend Vrij</a>
+
+            <!-- Als je 48 uitgeefd buiten de spits en 24 in de spits is Altijd Voordeel het beste -->
+            {:else if (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 48 && (data.totals.total.sum / Object.keys(data.months).length).toFixed(2) - 48 > 24}
+            <a href="https://www.ns.nl/ns-abonnementen/altijd-voordeel/">NS Flex Altijd Voordeel</a>
+            
+            <!-- Als je in de daluren meer dan 12,5 uitgeefd per maand is het NS Fles Dal Voordeel het al goedkoper-->
+            {:else if (data.totals.reduction.sum / Object.keys(data.months).length).toFixed(2) > 12.5} 
+            <a href="https://www.ns.nl/ns-abonnementen/dal-voordeel/">NS Flex Dal Voordeel</a>
+
+            <!-- NS Flex Weekend Voordeel -->
+            {:else if (data.totals.weekend.sum  / Object.keys(data.months).length).toFixed(2) > 7.5}
+            <a href="https://www.ns.nl/ns-abonnementen/weekend-voordeel/">NS Flex Weekend Voordeel</a>
+            
+            <!-- Default to Flex Basis -->
+            {:else}
+            <a href="https://www.ns.nl/ns-abonnementen/basis/">NS Flex Basis</a>
+            {/if}
+        </td>
     </tr>
     {#each Object.entries(data.reduction.months) as [month, month_data]}
         <tr>
