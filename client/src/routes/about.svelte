@@ -2,9 +2,14 @@
 
 <div class="container">
 
+
 	<h1>
 		Over EHBA
 	</h1>
+
+	<div id="about">
+
+	<h2>Huh? Wie, wat en waarom?</h2>
 
 	<img id="profile-image" src="/joost.png" alt="">	
 
@@ -39,5 +44,7 @@
 		Je kan het project ook volgen op <a href="https://github.com/jplattel/ehba">Github</a>  
 		<i>(en contributions zijn altijd welkom!)</i>.
 	</p>
+
+	</div>
 	
 </div>

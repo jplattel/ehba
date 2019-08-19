@@ -4,6 +4,8 @@
 
     <h1>Hoe werkt het?</h1>
 
+    <div id="faq">
+
     <h2>OV-Chipkaart Export</h2>
 
     <p>
@@ -59,5 +61,7 @@
     <p>
         Niks, noppes nada, wel zo fijn! ✌️
     </p>
+
+    </div>
 
 </div>

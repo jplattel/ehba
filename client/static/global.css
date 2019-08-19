@@ -42,6 +42,16 @@ code {
 	/* display: block; */
 }
 
+#faq{
+	background-color: white;
+	padding: 15px;
+}
+
+#about{
+	background-color: white;
+	padding: 15px;
+}
+
 #profile-image{
 	float: right;
 	display: block;
@@ -62,6 +72,7 @@ code {
 	padding: 15px;
 	float: left;
 }
+
 .files pre{
 	background-color: white;
 	padding: 3px;
