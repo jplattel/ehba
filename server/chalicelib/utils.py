@@ -57,6 +57,9 @@ def _read_dict(data):
         # Drop automatisch opladen 
         df = df[df['Transactie'] != 'Saldo automatisch opgeladen']
 
+        # Drop product op kaart geladen
+        df = df[df['Transactie'] != 'Product op kaart geladen']
+
         # Rename columns to match calculations
         df.rename(columns={
             'Datum': 'datum',
@@ -76,6 +79,7 @@ def _read_dict(data):
 
         # Drop the actual shifted rows
         df = df.drop(shifted_rows)
+        df = df.drop(df[df['place_to'] == ""].index) # And drop where we dont have a matching place to...
 
         # Convert monetary value
         df['bedrag'] = pd.to_numeric(df['bedrag'].str.replace(',', '.'))

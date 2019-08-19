@@ -140,10 +140,36 @@ code {
 	width: 50%;
 }
 
-/* Mobile  */
-@media only screen and (max-width: 420px) {
+@media only screen and (min-width: 320px) and (max-width:420px) {
 	h1 {
-		font-size: 26px;
+		font-size: 24px;
+		margin-bottom: 30px;
+	}
+	body {
+		font-size: 16px;
+	}
+	main {
+		margin-bottom: 100px;
+	}
+	#manual{
+		width: 100%
+	}
+	#form{
+		width: 100%;
+		margin-bottom: 100px;
+	}
+	.chart{
+		width: 100%;
+	}
+	.data-table {
+		overflow: scroll
+	}
+}
+
+/* Mobile  */
+@media only screen and (min-width: 320px) and (max-width:420px) {
+	h1 {
+		font-size: 30px;
 		margin-bottom: 30px;
 	}
 	body {
@@ -171,7 +197,7 @@ code {
 /* Tablet */
 @media only screen and (min-width:420px) and (max-width:768px) {
 	h1 {
-		font-size: 36px;
+		font-size: 42px;
 	}
 	body {
 		font-size: 16px;

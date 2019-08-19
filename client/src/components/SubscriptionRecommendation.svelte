@@ -135,7 +135,14 @@ table.data-table  tr td, table.data-table  tr th{
             <td>{month}</td>
             <td>€ {data.months[month].sum.toFixed(2)}</td>
             <td>€ {month_data.sum.toFixed(2)}</td>
-            <td>€ {data.weekend.months[month].sum.toFixed(2)}</td>
+            <td>€ 
+            <!-- In case of missing weekend, we default to zero.. -->
+            {#if data.weekend.months[month]}
+                {data.weekend.months[month].sum.toFixed(2)}
+            {:else}
+                0.00
+            {/if}
+            </td>
             <td>
 
             <!-- Als je meer dan 347 per maand uitgeeft is Altijd Vrij het beste -->
@@ -147,12 +154,13 @@ table.data-table  tr td, table.data-table  tr th{
             <a href="https://www.ns.nl/ns-abonnementen/dal-vrij/">NS Flex Dal Vrij</a>
 
             <!-- NS Flex Weekend Vrij (+ korting) -->
-            {:else if data.weekend.months[month].sum > 80 && data.weekend.months[month].sum - data.reduction[month].sum > 7.5} NS Flex Weekend Vrij & korting
+            {:else if data.weekend.months[month] && data.weekend.months[month].sum > 80 && data.weekend.months[month].sum - data.reduction[month].sum > 7.5} NS Flex Weekend Vrij & korting
             <a href="https://www.ns.nl/ns-abonnementen/weekend-vrij/">NS Flex Weekend Vrij (+ korting!)</a>
 
             <!-- NS Flex Weekend Vrij -->
-            {:else if data.weekend.months[month].sum > 80} 
+            {:else if data.weekend.months[month] && data.weekend.months[month].sum > 80} 
             <a href="https://www.ns.nl/ns-abonnementen/weekend-vrij/">NS Flex Weekend Vrij</a>
+
 
             <!-- Als je 48 uitgeefd buiten de spits en 24 in de spits is Altijd Voordeel het beste -->
             {:else if month_data.sum > 48 && data.months[month].sum - 48 > 24}
@@ -163,8 +171,9 @@ table.data-table  tr td, table.data-table  tr th{
             <a href="https://www.ns.nl/ns-abonnementen/dal-voordeel/">NS Flex Dal Voordeel</a>
 
             <!-- NS Flex Weekend Voordeel -->
-            {:else if data.weekend.months[month].sum > 7.5}
+            {:else if data.weekend.months[month] && data.weekend.months[month].sum > 7.5}
             <a href="https://www.ns.nl/ns-abonnementen/weekend-voordeel/">NS Flex Weekend Voordeel</a>
+        
             
             <!-- Default to Flex Basis -->
             {:else}
