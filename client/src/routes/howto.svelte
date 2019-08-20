@@ -6,6 +6,14 @@
 
     <div id="faq">
 
+    <h2>Wat krijg ik te zien?</h2>
+    
+    <p>
+        De applicatie maakt met behulp van jouw data een berekening welk abonnement het meest 
+        geschikt zou zijn mits je reis-patroon hetzelfde blijft. Ook krijg je per maand te zien 
+        wat het meest geschikte abonnement was. 
+    </p>
+
     <h2>OV-Chipkaart Export</h2>
 
     <p>
@@ -39,7 +47,7 @@
     <h2>Kan je ook traject abonnementen aanraden?</h2>
 
     <p>
-        Helaas! Het enigste wat deze applicatie niet doet is zijn traject abonnementen, dat komt 
+        Helaas! Het enigste wat deze applicatie niet doet zijn traject abonnementen, dat komt 
         omdat de prijs van het traject onbekend is en niet direct even makkelijk beschikbaar is.
     </p>
 

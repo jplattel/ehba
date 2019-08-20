@@ -173,7 +173,6 @@ table.data-table  tr td, table.data-table  tr th{
             <!-- NS Flex Weekend Voordeel -->
             {:else if data.weekend.months[month] && data.weekend.months[month].sum > 7.5}
             <a href="https://www.ns.nl/ns-abonnementen/weekend-voordeel/">NS Flex Weekend Voordeel</a>
-        
             
             <!-- Default to Flex Basis -->
             {:else}
