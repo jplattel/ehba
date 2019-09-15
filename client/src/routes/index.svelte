@@ -2,7 +2,7 @@
 
 {#if state === 'select' }
 
-    <div class="container">
+    <div class="container" style="min-height: 700px;">
 
         <h1>Eerste Hulp Bij Abonnementen!</h1>
 
