@@ -98,6 +98,8 @@
             <h1>De resultaten!</h1>
 
             <SubscriptionRecommendation data={results.results} counts={results.counts}></SubscriptionRecommendation>
+            
+            <button style="margin-top: 12px; margin-bottom: 12px;" class="btn-primary" on:click="{goHome}">Terug naar het formulier</button>
 
             <BarChart data={results.results.weekdays}>
                 <span slot="title">Dag van de week</span>
@@ -114,8 +116,6 @@
                 <span slot="title">Totaal</span>
                 <span slot="description">Hoeveel treinreizen maakte je totaal en hoeveel kostte dat?</span>
             </BarChart>
-
-            <button class="btn-primary" on:click="{goHome}">Terug naar het formulier</button>
 
             <RawDataTable data={results.data}></RawDataTable>
 

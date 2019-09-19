@@ -79,6 +79,11 @@ table.data-table  tr td, table.data-table  tr th{
         </strong>
 
     </p>
+
+    <p>
+        Hieronder vind je de data per maand en een aantal grafieken die je wellicht ook verder kunnen helpen. 
+        Heb je een andere dataset die je wilt uploaden. <a href="https://ehba.app">Ga dan terug naar het formulier</a>.
+    </p>
     
 </div>
 
