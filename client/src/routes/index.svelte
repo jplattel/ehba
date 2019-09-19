@@ -115,6 +115,8 @@
                 <span slot="description">Hoeveel treinreizen maakte je totaal en hoeveel kostte dat?</span>
             </BarChart>
 
+            <button class="btn-primary" on:click="{goHome}">Terug naar het formulier</button>
+
             <RawDataTable data={results.data}></RawDataTable>
 
         {/if}

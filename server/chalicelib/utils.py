@@ -95,6 +95,9 @@ def _read_dict(data):
 
 
 def parsed_json_files_to_dataframe(files):
+    if len(files) == 0:
+        return [], {}
+
     data = pd.concat(list(map(lambda data: _read_dict(data), files)), sort=True)
     data = parse_times(data)
     data = data.reset_index(drop=True)
@@ -122,6 +125,7 @@ def check_weekday_reduction_time(check_in):
         return False
 
 def parse_times(df):
+    print(df.dtypes)
     df['reduction_weekend'] = df['datum'].dt.day_name().isin(["Saturday", "Sunday"]) # Weekend
     df['reduction_hours'] = df['check_in'].apply(check_weekday_reduction_time)
     df['reduction'] = df['reduction_weekend'] | df['reduction_hours']

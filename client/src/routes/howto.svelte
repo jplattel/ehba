@@ -14,6 +14,19 @@
         wat het meest geschikte abonnement was. 
     </p>
 
+    <p>
+        De applicatie werkt het beste voor mensen die nog geen gebruik maken van een abonnement. 
+        Dit komt doordat we de berekeningen voor de kosten van de reizen maken met behulp van de 
+        data in de export, als je gebruik maakt van een abonnement vallen de kosten al lager uit 
+        wat dus invloed heeft op je resultaten.
+    </p>
+
+    <p>
+        Alhoewel ik mijn best heb gedaan om de berekening zo stabiel mogelijk te maken kan het 
+        geen kwaad om deze te controleren! Het kan natuurlijk gebeuren dat ik ergens een foutje 
+        heb gemaakt, dus het abonnement aanschaffen is natuurlijk op geheel eigen risico! 
+    </p>
+
     <h2>OV-Chipkaart Export</h2>
 
     <p>
