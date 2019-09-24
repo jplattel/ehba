@@ -34,6 +34,13 @@
 			height: 20px;
 			bottom: -20px;
 		}
+		
+	}
+
+	@media only screen and (max-width: 640px) {
+		.beta-label span{
+			display: none;
+		}
 	}
 
 	ul {
@@ -76,6 +83,20 @@
 		display: block;
 		color: #003082
 	}
+
+	.beta-label{
+		float: right; 
+		margin-top: 17px;
+		margin-bottom: 17px;
+		background-color: #cc2525; 
+		padding: 3px;
+		padding-left: 7px;
+		padding-right: 7px;
+		color: white;
+		border-radius: 5px;
+		font-size: 12px;
+		font-weight: bold;
+	}
 </style>
 
 <nav>
@@ -83,6 +104,11 @@
 		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>🚆 EHBA</a></li>
 		<li><a class='{segment === "howto" ? "selected" : ""}' href='howto'>📚 Hoe werkt het?</a></li>
 		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>📜 Over</a></li>
+		
+		<!-- Beta label -->
+		<li class="beta-label">
+			<span>Currently in </span>beta!
+		</li>
 	</ul>
 </nav>
 <div class="triangle"></div>
