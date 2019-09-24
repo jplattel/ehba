@@ -140,9 +140,9 @@
     let state = 'select'
     let results = null;
     let errors = null;
-
-    // const API_URL = 'http://127.0.0.1:8000'
-    const API_URL = 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api'
+    const API_URL = process.env.NODE_ENV === "development" ? 'http://127.0.0.1:8000' : 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api';
+    
+    console.log(API_URL)
     
     // Fetch the recommendations, based on the data supplied by the user
     const fetchRecommendations = async () => {

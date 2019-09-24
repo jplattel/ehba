@@ -2,13 +2,13 @@ const webpack = require('webpack');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
 
-const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
-
 const extensions = ['.mjs', '.js', '.json', '.svelte', '.html'];
 const mainFields = ['svelte', 'module', 'browser', 'main'];
 
-module.exports = {
+const mode = process.env.NODE_ENV;
+const dev = mode === 'development';
+
+const webpackConfig = {
 	client: {
 		entry: config.client.entry(),
 		output: config.client.output(),
@@ -65,10 +65,6 @@ module.exports = {
 			hints: false // it doesn't matter if server.js is large
 		}
 	},
+}
 
-	// serviceworker: {
-	// 	entry: config.serviceworker.entry(),
-	// 	output: config.serviceworker.output(),
-	// 	mode: process.env.NODE_ENV
-	// }
-};
+module.exports = webpackConfig
