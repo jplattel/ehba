@@ -8,7 +8,8 @@ import json
 class EhbaUtilsTest(unittest.TestCase):
     def test_upload_empty(self):
         data = []
-        results = utils.parsed_json_files_to_dataframe(data)
+        data, results = utils.parsed_json_files_to_dataframe(data)
+        self.assertEqual(results, {})
     
     def test_json_upload_single_files(self):
         for file in glob.glob("tests/data/*.json"):
@@ -26,8 +27,6 @@ class EhbaUtilsTest(unittest.TestCase):
             data = json.loads(open(file, "r").read())
             files.append(data.get('files')[0])
 
-        # print(files)
-        # # We should have the same amount of files
         self.assertEqual(len(files), len(glob.glob("tests/data/*.json")))
 
         data, results = utils.parsed_json_files_to_dataframe(files)

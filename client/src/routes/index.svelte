@@ -41,7 +41,7 @@
                 </li>
             </ol>
         </div>
-        <div id="form">
+        <form id="form">
             <label class="input-label" for="file-selector">
                 Selecteer jouw bestanden (.csv en/of .xls)
                 <input class="input-file"  name="file-selector" on:change={changed} type="file" id="file-selector" multiple="multiple" bind:files accept=".xls,.xlsx,.csv" >
@@ -57,8 +57,7 @@
             </div>
             {/if}
             <input disabled="{ files.length === 0 }" class="btn-primary btn-block" type="button" value="Help mij aan een abonnement!" on:click="{clickRecommendationsForm}">
-            
-        </div>
+        </form>
     </div>
 
 {:else if state === 'loading'}
@@ -126,14 +125,15 @@
 {/if}
 
 <script>
+
     import Papa from "papaparse";
     import * as XLSX from 'xlsx';
     import BarChart from '../components/BarChart.svelte';
     import RawDataTable from '../components/RawDataTable.svelte';
     import SubscriptionRecommendation from '../components/SubscriptionRecommendation.svelte';
     import Loader from '../components/Loader.svelte';
-	import * as Sentry from '@sentry/browser';
-
+    import * as Sentry from '@sentry/browser';
+    
 	Sentry.init({ dsn: 'https://3ccc21b329bf4844b888210a12d6a026@sentry.io/1526262' });
 
     let files = [];    
