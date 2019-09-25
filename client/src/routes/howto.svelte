@@ -10,7 +10,7 @@
     
     <p>
         De applicatie maakt met behulp van jouw data een berekening welk abonnement het meest 
-        geschikt zou zijn mits je reis-patroon hetzelfde blijft. Ook krijg je per maand te zien 
+        geschikt zou zijn, mits je reis-patroon hetzelfde blijft. Ook krijg je per maand te zien 
         wat het meest geschikte abonnement was. 
     </p>
 
@@ -49,18 +49,18 @@
         en kan je per maand de reizen exporteren als Excel bestand.
     </p>
 
-    <h2>Wat gebeurd er met mijn data?</h2>
+    <h2>Wat gebeurt er met mijn data?</h2>
 
     <p>
         Je data wordt verzonden naar een server waarop deze data verwerkt wordt om je inzicht te kunnen geven. 
-        De data wordt <strong>niet</strong> opgeslagen. Werkt de applicatie niet goed met jou data? Neem dan even contact met mij op:  
+        De data wordt <strong>niet</strong> opgeslagen. Werkt de applicatie niet goed met jouw data? Neem dan even contact met mij op:  
         <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>. Want soms is het ontwikkelen en bugfixen daardoor soms moeilijker 🤓.
     </p>
 
     <h2>Kan je ook traject abonnementen aanraden?</h2>
 
     <p>
-        Helaas! Het enigste wat deze applicatie niet doet zijn traject abonnementen, dat komt 
+        Helaas! Het enige wat deze applicatie niet doet zijn traject abonnementen, dat komt 
         omdat de prijs van het traject onbekend is en niet direct even makkelijk beschikbaar is.
     </p>
 
@@ -68,7 +68,7 @@
 
     <p>
         De oude abonnementen komen ongeveer overeen met de nieuwe. Je kan ze zelf vergelijken (oud / nieuw).
-        Omdat de NS de Flex abonnementen onlangs heeft geintroduceerd houden mijn berekeningen daarmee het langste stand..
+        Omdat de NS de Flex abonnementen onlangs heeft geintroduceerd houden mijn berekeningen daarmee het langste stand...
     </p>
 
     <h2>Welke logica zit er achter het aanraden van het abonnement?</h2>
