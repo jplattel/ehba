@@ -107,7 +107,7 @@
 		
 		<!-- Beta label -->
 		<li class="beta-label">
-			<span>Currently in </span>beta!
+			Beta!
 		</li>
 	</ul>
 </nav>
