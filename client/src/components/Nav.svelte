@@ -37,12 +37,6 @@
 		
 	}
 
-	@media only screen and (max-width: 640px) {
-		.beta-label span{
-			display: none;
-		}
-	}
-
 	ul {
 		margin: 0;
 		padding: 0;

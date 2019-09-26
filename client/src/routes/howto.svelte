@@ -53,8 +53,8 @@
 
     <p>
         Je data wordt verzonden naar een server waarop deze data verwerkt wordt om je inzicht te kunnen geven. 
-        De data wordt <strong>niet</strong> opgeslagen. Werkt de applicatie niet goed met jouw data? Neem dan even contact met mij op:  
-        <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>. Want soms is het ontwikkelen en bugfixen daardoor soms moeilijker 🤓.
+        De data wordt <strong>niet</strong> opgeslagen. Soms is dat lastig, want dan werkt de applicatie niet goed.. En dan ik kan dan niet zien wat er mis gaat.
+        Wil je dat ik er met jouw dataset naar kijk, neem dan even contact met mij op: <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>. 
     </p>
 
     <h2>Kan je ook traject abonnementen aanraden?</h2>

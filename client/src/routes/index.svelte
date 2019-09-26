@@ -87,6 +87,11 @@
                     <a href="mailto:jsplattel@gmail.com">jsplattel@gmail.com</a>.
                 </p>
 
+                <p>
+                    Ik heb geen toegang tot je data, maar als je het wilt kan je mij mailen 
+                    met jouw dataset en kijk ik even waar het fout gaat! 
+                </p>
+
                 <button class="btn-primary" on:click="{goHome}">Terug naar het formulier</button>
             </div>
             
@@ -97,8 +102,6 @@
             <h1>De resultaten!</h1>
 
             <SubscriptionRecommendation data={results.results} counts={results.counts}></SubscriptionRecommendation>
-            
-            <button style="margin-top: 12px; margin-bottom: 12px;" class="btn-primary" on:click="{goHome}">Terug naar het formulier</button>
 
             <BarChart data={results.results.weekdays}>
                 <span slot="title">Dag van de week</span>
@@ -141,9 +144,7 @@
     let results = null;
     let errors = null;
     const API_URL = process.env.NODE_ENV === "development" ? 'http://127.0.0.1:8000' : 'https://4xr94hjzkd.execute-api.us-east-1.amazonaws.com/api';
-    
-    console.log(API_URL)
-    
+        
     // Fetch the recommendations, based on the data supplied by the user
     const fetchRecommendations = async () => {
         // Change the interface and start parsing the files to JSON

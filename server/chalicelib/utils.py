@@ -3,7 +3,12 @@ import datetime
 
 def _read_dict(data):
     # Get data and transform into dataframe
-    df = pd.DataFrame.from_dict(data.get('data'))
+    f = data.get('data')
+
+    if not f:
+        return None
+
+    df = pd.DataFrame.from_dict(f)
     
     # Drop the last row (empty from blank line from CSV parser)
     df = df[:-1]
@@ -98,7 +103,12 @@ def parsed_json_files_to_dataframe(files):
     if len(files) == 0:
         return [], {}
 
-    data = pd.concat(list(map(lambda data: _read_dict(data), files)), sort=True)
+    parsed_files = [file for file in list(map(lambda data: _read_dict(data), files)) if file is not None]
+
+    if len(parsed_files) == 0:
+        return [], {}
+
+    data = pd.concat(parsed_files, sort=True)
     data = parse_times(data)
     data = data.reset_index(drop=True)
     results = get_results(data)
@@ -125,7 +135,6 @@ def check_weekday_reduction_time(check_in):
         return False
 
 def parse_times(df):
-    print(df.dtypes)
     df['reduction_weekend'] = df['datum'].dt.day_name().isin(["Saturday", "Sunday"]) # Weekend
     df['reduction_hours'] = df['check_in'].apply(check_weekday_reduction_time)
     df['reduction'] = df['reduction_weekend'] | df['reduction_hours']
