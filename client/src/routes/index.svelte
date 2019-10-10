@@ -173,7 +173,6 @@
     }
 
     const changed = (event)=>{
-		console.log('changed', event)
 		files = event.target.files;
 	}
 
@@ -201,7 +200,7 @@
     // Parse files to JSON
     const parseFiles = async (files) => {
         let convertedFiles = await Promise.all(await Array.from(files).map(async file => {
-            if (file.type === "text/csv") {
+            if (file.type === "text/csv" || file.name.endsWith('csv')) {
                 return await Papa.parsePromise(file);
             } else if (file.name.endsWith('xlsx') || file.name.endsWith('xls')) {
                 let csv = await XLSX.parsePromise(file);
