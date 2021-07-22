@@ -17,7 +17,7 @@
     "papaparse": "^5.0.0",
     "polka": "^0.5.0",
     "sirv": "^0.4.0",
-    "xlsx": "^0.14.3"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "cypress": "^3.4.1",
